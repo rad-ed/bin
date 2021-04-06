@@ -13,9 +13,10 @@ _deployments=$2   # directory deployment files will be retrieved from
 _odir=$3          # output directory
 _postfix=$4       # (optional) postfix on output files
 
-[[ ! -d $_idir ]] && echo "indir (arg1) must be a directory!" && exit 1
+[[ ! -d $_idir ]] && echo "idir (arg1) must be a directory!" && exit 1
+[[ ! -d $_deployments ]] && echo "deployments (arg2) must be a directory!" && exit 1
 mkdir -p $_odir 
-!($!) && echo "indir (arg1) must be a valid directory!" && exit 1
+!($!) && echo "odir (arg3) must be a valid directory!" && exit 1
 
 _files=$(cd ${_deployments} && find ~+ \( ! -regex '.*/\..*' \) -type f)
 
