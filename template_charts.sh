@@ -1,17 +1,17 @@
 #!/bin/bash
-# builds and updates helm charts; assumes chart-of-charts structure
+# templates and updates helm charts; assumes chart-of-charts structure
 # and an override environment directory, which will be recursively
-# searched for all files
+# searched for all files, and applied with -f
 
 : ${1?"Missing input directory (chart of charts)"} \
   ${2?"Missing deployment directory"} \
   ${3?"Missing output directory"} \
   ${4-""}
 
-_idir=$1  # directory charts will be build from
-_odir=$3  # directory which will be created & diffiles placed
-_deployments=$2
-_postfix=$4
+_idir=$1          # directory charts will be build from (chart-of-charts)
+_deployments=$2   # directory deployment files will be retrieved from
+_odir=$3          # output directory
+_postfix=$4       # (optional) postfix on output files
 
 [[ ! -d $_idir ]] && echo "indir (arg1) must be a directory!" && exit 1
 mkdir -p $_odir 
