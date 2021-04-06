@@ -38,8 +38,8 @@ for f0 in $_files; do
       # destination filename will be outdir/file0-file1.diff
       _diffile=${_odir}/${_0}-${_1}${_append}.diff
 
-      date
-      tput setaf 1 ; echo "writing $_diffile"
+      tput setaf 8 ; date
+      tput setaf 2 ; echo "writing $_diffile"
 
       echo "$(diff $f0 $f1)" > $_diffile
     fi
