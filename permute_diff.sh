@@ -16,7 +16,7 @@ _append=$3  # (optional) append to filename for comparison
 [[ ! -d $_idir ]] && echo "indir (arg1) must be a directory!" && exit 1
 
 mkdir -p $_odir 
-($! = 0) && echo "indir (arg1) must be a valid directory!" && exit 1
+!($!) && echo "indir (arg1) must be a valid directory!" && exit 1
 
 # get absolute paths of all non-hidden files
 _files=$(cd ${_idir} && find ~+ \( ! -regex '.*/\..*' \) -type f)
